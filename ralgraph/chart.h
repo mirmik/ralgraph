@@ -63,7 +63,10 @@ namespace ralgraph
 
 		void autoscale() 
 		{
-			float xmin = data[0].x(), xmax = data[0].x(), ymin = data[0].y(), ymax = data[0].y();
+			float xmin = data[0].x();
+			float xmax = data[0].x();
+			float ymin = data[0].y();
+			float ymax = data[0].y();
 
 			for (int i = 1; i < data.size(); ++i) 
 			{
@@ -73,7 +76,7 @@ namespace ralgraph
 				if (pnt.x() > xmax) xmax = pnt.x();
 
 				if (pnt.y() < ymin) ymin = pnt.y();
-				if (pnt.y() < ymax) ymax = pnt.y();
+				if (pnt.y() > ymax) ymax = pnt.y();
 			}
 
 			axisX->setRange(xmin, xmax);
